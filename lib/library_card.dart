@@ -10,7 +10,7 @@ class LibraryCard extends StatelessWidget {
       {@required this.bookTitle,
       @required this.author,
       @required this.color,
-      @required this.onTap,
+      this.onTap,
       this.imageURL});
   @override
   Widget build(BuildContext context) {
