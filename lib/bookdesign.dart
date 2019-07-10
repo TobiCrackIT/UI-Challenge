@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart' as prefix0;
 import 'package:ui_challenge/library_card.dart';
+import 'package:ui_challenge/podcast.dart';
+import 'package:ui_challenge/widgets/podcast.dart';
 import 'package:ui_challenge/workshop.dart';
 import 'detail.dart';
 import 'Book.dart';
@@ -47,36 +49,6 @@ class BookDesign extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget podcast(String nName, Color color) {
-      return GestureDetector(
-        onTap: () {
-          util.showBottomSheet(context);
-        },
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: <Widget>[
-            ClipRRect(
-                borderRadius: BorderRadius.all(Radius.circular(30)),
-                child: Image.asset(
-                  'assets/pass3.jpg',
-                  width: 60,
-                  height: 60,
-                  fit: BoxFit.fill,
-                  color: Colors.purple.withOpacity(0.7),
-                  colorBlendMode: BlendMode.hardLight,
-                )),
-            SizedBox(
-              height: 1,
-            ),
-            Text(
-              nName,
-              style: TextStyle(fontSize: 8, color: Colors.grey),
-            )
-          ],
-        ),
-      );
-    }
-
     return Scaffold(
       backgroundColor: Colors.white,
       resizeToAvoidBottomPadding: false,
@@ -274,7 +246,7 @@ class BookDesign extends StatelessWidget {
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (BuildContext context, int index) {
-                      return podcast(authorsList[index], cardColors[index % 4]);
+                      return Podcast(guestName: authorsList[index]);
                     },
                     separatorBuilder: (BuildContext context, int index) =>
                         SizedBox(

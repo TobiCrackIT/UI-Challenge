@@ -1,8 +1,8 @@
-class Podcast{
+class PodcastModel{
   final String author;
   final String title;
 
-  Podcast(this.author, this.title);
+  PodcastModel(this.author, this.title);
 
 
 }
