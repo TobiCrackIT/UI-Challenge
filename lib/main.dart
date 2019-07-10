@@ -12,6 +12,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
 
         primarySwatch: Colors.green,
+        canvasColor: Colors.transparent
+
       ),
       home: MyHomePage(),
     );
@@ -33,6 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
 
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
@@ -65,6 +68,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
+            
+            Image.network("https://bookcoverexpress.com/wp-content/uploads/2017/08/spooky.jpg",height: 200,width: 200,)
 
           ],
         ),
