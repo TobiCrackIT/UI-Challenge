@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart' as prefix0;
 import 'package:ui_challenge/library_card.dart';
+import 'package:ui_challenge/workshop.dart';
 import 'detail.dart';
 import 'Book.dart';
 //import 'package:url_launcher/url_launcher.dart';
@@ -244,7 +245,7 @@ class BookDesign extends StatelessWidget {
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (BuildContext context, int index) {
-                      return workshopCard();
+                      return WorkshopCard();
                     },
                     separatorBuilder: (BuildContext context, int index) =>
                         SizedBox(
@@ -284,69 +285,6 @@ class BookDesign extends StatelessWidget {
                           width: 35,
                         ),
                     itemCount: 5),
-              ),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget workshopCard() {
-    return Card(
-      elevation: 1.5,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20.0),
-      ),
-      child: Container(
-        width: 300,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            ClipRRect(
-                borderRadius: BorderRadius.all(Radius.circular(20)),
-                child: Image.asset(
-                  'assets/pass4.jpg',
-                  width: 110,
-                  height: 110,
-                  fit: BoxFit.fill,
-                )),
-            SizedBox(
-              width: 12.0,
-            ),
-            Flexible(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    "Upcoming Workshops",
-                    style:
-                        TextStyle(fontSize: 13.0, fontWeight: FontWeight.w800),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 8.0, bottom: 8.0),
-                    child: Text(
-                      "We are currently working on our "
-                      "Fall 2019 Workshop Schedule and "
-                      "we will have details available soon",
-                      style: TextStyle(
-                        fontSize: 10.0,
-                        fontWeight: FontWeight.w300,
-                      ),
-                      softWrap: true,
-                      textAlign: TextAlign.justify,
-                      maxLines: 4,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  )
-                ],
               ),
             )
           ],
@@ -395,35 +333,3 @@ class BookDesign extends StatelessWidget {
         });
   }
 }
-
-/*_launchURL() async {
-  print('tapped');
-  const url = 'https://busha.co';
-  if (await canLaunch(url)) {
-    await launch(url);
-  } else {
-    throw 'Could not launch $url';
-  }
-}*/
-
-/*class RoundedClipper extends CustomClipper<Path> {
-  var differenceInHeights = 0;
-
-  RoundedClipper(int differenceInHeights) {
-    this.differenceInHeights = differenceInHeights;
-  }
-
-  @override
-  Path getClip(Size size) {
-    var path = Path();
-    path.lineTo(0, size.height - differenceInHeights);
-    path.quadraticBezierTo(
-        size.width / 3, size.height, size.width, size.height);
-    path.lineTo(size.width, 0);
-    path.close();
-    return path;
-  }
-
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
-}*/
