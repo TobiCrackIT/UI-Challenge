@@ -385,7 +385,7 @@ class BookDesign extends StatelessWidget {
     return Card(
       elevation: 1.5,
       shape: prefix0.RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(30.0),
+        borderRadius: BorderRadius.circular(20.0),
       ),
       child: Container(
         width: 300,
@@ -393,7 +393,7 @@ class BookDesign extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             ClipRRect(
-                borderRadius: BorderRadius.all(Radius.circular(30)),
+                borderRadius: BorderRadius.all(Radius.circular(20)),
                 child: Image.asset(
                   'assets/pass4.jpg',
                   width: 110,
