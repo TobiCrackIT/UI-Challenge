@@ -16,6 +16,15 @@ class Detail extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        elevation: 0.0,
+        bottomOpacity: 0.0,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          color: Colors.black,
+          icon: Icon(Icons.arrow_back_ios),
+        ),
         actions: <Widget>[
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 15.0),
