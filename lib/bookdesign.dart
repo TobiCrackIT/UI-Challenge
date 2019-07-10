@@ -311,9 +311,6 @@ class BookDesign extends StatelessWidget {
     );
   }
 
-<<<<<<< HEAD
-  
-=======
 
 
 
@@ -360,7 +357,6 @@ class BookDesign extends StatelessWidget {
         }
     );
   }
->>>>>>> 8aeed74891e6039bd05bb6d521aacd3dc96fae3d
 
 
 }
