@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
 import 'detail.dart';
+import 'Book.dart';
+//import 'package:url_launcher/url_launcher.dart';
 
 class BookDesign extends StatelessWidget {
 
   List<String> bookTitles=["Enterprise Design Sprints","DesignOps Handbook","Design System Handbook","Engineering Mathematics","Fluid Mechanics and Dynamics","Intro to Thermodynamics"];
-  List<String> authorsList=["Richard Bonfield","Taraji Henson","Ben Brue","Constatine Cavafy","Robert Fulghum"];
+  List<String> authorsList=["Richard Bonfield","Taraji Henson","Ben Bruce","Constatine Cavafy","Robert Fulghum"];
   List<Color> cardColors=[Colors.blue[800],Colors.pink,Colors.green[700],Colors.red[400],Colors.yellow[600],];
   List<String> imagesURL;
+
+  List<Book> bookList=[Book("Something On The Other Side", "Robert Bremner", Colors.blue[800],"https://bookcoverexpress.com/wp-content/uploads/2017/08/spooky.jpg"),
+    Book("Get Your Life Back", "Dr. Melodie Billiot", Colors.pink,"https://bookcoverexpress.com/wp-content/uploads/2018/03/medicallarge.jpg"),
+    Book("Why We Dream", "Steve Dorsey", Colors.green[700],"https://bookcoverexpress.com/wp-content/uploads/2019/03/dreamLARGE-1.jpg"),
+    Book("The Dating Mirror", "Diana Dorrell", Colors.red[400],"https://bookcoverexpress.com/wp-content/uploads/2019/03/mirrorlarge.jpg"),
+    Book("Hitting The Ground", "Brad Manuel", Colors.yellow[600],"https://bookcoverexpress.com/wp-content/uploads/2015/06/manuel.jpg")
+  ];
 
   
 
@@ -22,10 +31,10 @@ class BookDesign extends StatelessWidget {
       );
     }
 
-    Widget libraryCard(String bookTitle,String author,Color color){
+    Widget libraryCard(String bookTitle,String author,Color color,String imgURL){
       return GestureDetector(
         onTap: (){
-          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Detail()));
+          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Detail(author: author,title: bookTitle,color: color,)));
         },
         child: Container(
           width: 100,
@@ -59,7 +68,7 @@ class BookDesign extends StatelessWidget {
                     SizedBox(height: 14,),
                     ClipRRect(
                         borderRadius: BorderRadius.only(bottomLeft: Radius.circular(20),bottomRight: Radius.circular(20)),
-                        child: Image.asset('assets/woman.jpg',width: 100,height: 68,fit: BoxFit.fill,)
+                        child: Image.network(imgURL,width: 100,height: 68,fit: BoxFit.cover,color: color,colorBlendMode: BlendMode.hardLight,)
                     ),
 
 
@@ -79,6 +88,28 @@ class BookDesign extends StatelessWidget {
 
             ],
           ),
+        ),
+      );
+    }
+
+    Widget podcast(String nName,Color color){
+      return GestureDetector(
+        onTap: (){
+          showBottomSheet(context);
+        },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+
+            ClipRRect(
+                borderRadius: BorderRadius.all(Radius.circular(30)),
+                child: Image.asset('assets/pass3.jpg',width: 60,height: 60,fit: BoxFit.fill,color: Colors.purple.withOpacity(0.7),colorBlendMode: BlendMode.hardLight,)
+            ),
+
+            SizedBox(height: 1,),
+
+            Text(nName,style: TextStyle(fontSize: 8,color: Colors.grey),)
+          ],
         ),
       );
     }
@@ -105,10 +136,11 @@ class BookDesign extends StatelessWidget {
                   Container(
                     margin: EdgeInsets.only(
                         top: MediaQuery.of(context).size.height * 0.15 - 80),
-                    height: MediaQuery.of(context).size.height * 0.33,
+                    height: MediaQuery.of(context).size.height * 0.40,
                     width: MediaQuery.of(context).size.width,
                     child: Column(
                       children: <Widget>[
+                        SizedBox(height: 15,),
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 2.0,horizontal: 16.0),
                           child: Row(
@@ -120,7 +152,7 @@ class BookDesign extends StatelessWidget {
                           ],
                   ),
                         ),
-                        SizedBox(height: 10,),
+                        SizedBox(height: 5,),
                         Padding(
                             padding: EdgeInsets.symmetric(horizontal: 16.0),
                             child: ListTile(
@@ -173,9 +205,10 @@ class BookDesign extends StatelessWidget {
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (BuildContext context, int index){
-                        return libraryCard(bookTitles[index],authorsList[index],cardColors[index]);
+                        Book currentBook=bookList[index];
+                        return libraryCard(currentBook.author,currentBook.title,currentBook.color,currentBook.imageURL);
                       },
-                      separatorBuilder: (BuildContext context, int index) => SizedBox(width: 20,),
+                      separatorBuilder: (BuildContext context, int index) => SizedBox(width: 25,),
                       itemCount: 5
                   ),
               ),
@@ -234,45 +267,115 @@ class BookDesign extends StatelessWidget {
 
 
   Widget workshopCard(){
-    return Container(
-      width: 280,
-      decoration: BoxDecoration(
-        color: Colors.white70,
-        borderRadius: BorderRadius.all(Radius.circular(20))
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: <Widget>[
-          ClipRRect(
+    return Card(
+      elevation: 1.5,
+      child: Container(
+        width: 300,
+        decoration: BoxDecoration(
+          color: Colors.white70,
+          borderRadius: BorderRadius.all(Radius.circular(40))
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            ClipRRect(
 
-              borderRadius: BorderRadius.all(Radius.circular(20)),
-              child: Image.asset('assets/pass2.jpg',width: 110,height: 110,fit: BoxFit.fill,)
-          ),
-
-          Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                SizedBox(height: 10,),
-                Text("Upcoming Workshops",style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold),softWrap: true,textAlign: TextAlign.left,),
-                SizedBox(height: 10,),
-
-
-              ],
+                borderRadius: BorderRadius.all(Radius.circular(8)),
+                child: Image.asset('assets/pass4.jpg',width: 110,height: 110,fit: BoxFit.fill,)
             ),
-          )
-        ],
+            SizedBox(width: 12.0,),
+            Flexible(
+
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  SizedBox(height: 10,),
+                  Text("Upcoming Workshops",style: TextStyle(fontSize: 13.0,fontWeight: FontWeight.w800),),
+                  SizedBox(height: 10,),
+                  Padding(
+                    padding: const EdgeInsets.only(right:8.0,bottom: 8.0),
+                    child: Text(
+                      "We are currently working on our "
+                          "Fall 2019 Workshop Schedule and "
+                          "we will have details available soon",
+                      style: TextStyle(fontSize: 10.0,fontWeight: FontWeight.w300,),softWrap: true,textAlign: TextAlign.justify,maxLines: 4,overflow: TextOverflow.ellipsis,),
+                  )
+
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
 
+<<<<<<< HEAD
   
+=======
+
+
+
+
+  void showBottomSheet(context){
+    showModalBottomSheet(
+        context: context,
+        builder: (BuildContext bc){
+          return Container(
+              decoration: BoxDecoration(
+                color: Colors.grey,
+                borderRadius: BorderRadius.only(topLeft: Radius.circular(50))
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: new Wrap(
+                  children: <Widget>[
+
+                    new ListTile(
+                      leading: new Icon(Icons.person_pin),
+                      title: new Text('Name'),
+                    ),
+
+                    new ListTile(
+                      leading: new Icon(Icons.music_note),
+                      title: new Text('Title'),
+                    ),
+
+                    new ListTile(
+                      leading: new Icon(Icons.access_time),
+                      title: new Text('Duration'),
+                    ),
+
+                    new ListTile(
+                      leading: new Icon(Icons.web),
+                      title: new Text('Website'),
+                    ),
+
+                    //new FlatButton(onPressed: _launchURL, child: Text('Website'))
+                  ],
+                ),
+              ),
+            );
+        }
+    );
+  }
+>>>>>>> 8aeed74891e6039bd05bb6d521aacd3dc96fae3d
 
 
 }
 
-class RoundedClipper extends CustomClipper<Path> {
+/*_launchURL() async {
+  print('tapped');
+  const url = 'https://busha.co';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}*/
+
+/*class RoundedClipper extends CustomClipper<Path> {
   var differenceInHeights = 0;
 
   RoundedClipper(int differenceInHeights) {
@@ -292,4 +395,4 @@ class RoundedClipper extends CustomClipper<Path> {
 
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) => false;
-}
+}*/
