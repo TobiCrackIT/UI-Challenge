@@ -101,14 +101,7 @@ class BookDesign extends StatelessWidget {
 
               child: Stack(
                 children: <Widget>[
-                  /*ClipPath(
-                    child: Container(
-                      height: MediaQuery.of(context).size.height * 0.25,
-                      width: MediaQuery.of(context).size.width,
-                      color: Colors.green,
-                    ),
-                    clipper: RoundedClipper(30),
-                  ),*/
+                  
                   Container(
                     margin: EdgeInsets.only(
                         top: MediaQuery.of(context).size.height * 0.15 - 80),
@@ -274,22 +267,7 @@ class BookDesign extends StatelessWidget {
     );
   }
 
-  Widget podcast(String nName,Color color){
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: <Widget>[
-
-        ClipRRect(
-            borderRadius: BorderRadius.all(Radius.circular(30)),
-            child: Image.asset('assets/pass2.jpg',width: 60,height: 60,fit: BoxFit.fill,colorBlendMode: BlendMode.overlay,)
-        ),
-
-        SizedBox(height: 1,),
-
-        Text(nName,style: TextStyle(fontSize: 8,color: Colors.grey),)
-      ],
-    );
-  }
+  
 
 
 }

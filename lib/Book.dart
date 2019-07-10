@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class Book{
-  final String author,title,imageURL,genre;
+  final String autho;
+  final String title;
+  final String imageURL;
+  final String description;
   final int nPages;
   final double price;
   final Color color;
