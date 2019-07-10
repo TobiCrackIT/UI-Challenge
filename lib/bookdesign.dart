@@ -4,6 +4,7 @@ import 'package:ui_challenge/library_card.dart';
 import 'package:ui_challenge/workshop.dart';
 import 'detail.dart';
 import 'Book.dart';
+import 'utils.dart' as util;
 //import 'package:url_launcher/url_launcher.dart';
 
 class BookDesign extends StatelessWidget {
@@ -46,15 +47,10 @@ class BookDesign extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    _pushMember() {
-      Navigator.of(context)
-          .push(new MaterialPageRoute(builder: (context) => new Detail()));
-    }
-
     Widget podcast(String nName, Color color) {
       return GestureDetector(
         onTap: () {
-          showBottomSheet(context);
+          util.showBottomSheet(context);
         },
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -291,45 +287,5 @@ class BookDesign extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  void showBottomSheet(context) {
-    showModalBottomSheet(
-        context: context,
-        builder: (BuildContext bc) {
-          return Container(
-            decoration: BoxDecoration(
-                color: Colors.grey,
-                borderRadius: BorderRadius.only(topLeft: Radius.circular(50))),
-            child: Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: new Wrap(
-                children: <Widget>[
-                  new ListTile(
-                    leading: new Icon(Icons.person_pin),
-                    title: new Text('Name'),
-                  ),
-
-                  new ListTile(
-                    leading: new Icon(Icons.music_note),
-                    title: new Text('Title'),
-                  ),
-
-                  new ListTile(
-                    leading: new Icon(Icons.access_time),
-                    title: new Text('Duration'),
-                  ),
-
-                  new ListTile(
-                    leading: new Icon(Icons.web),
-                    title: new Text('Website'),
-                  ),
-
-                  //new FlatButton(onPressed: _launchURL, child: Text('Website'))
-                ],
-              ),
-            ),
-          );
-        });
   }
 }
