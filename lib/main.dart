@@ -68,8 +68,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-            
-            Image.network("https://bookcoverexpress.com/wp-content/uploads/2017/08/spooky.jpg",height: 200,width: 200,)
 
           ],
         ),
