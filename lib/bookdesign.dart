@@ -1,52 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart' as prefix0;
 import 'package:ui_challenge/library_card.dart';
-import 'package:ui_challenge/podcast.dart';
 import 'package:ui_challenge/widgets/podcast.dart';
 import 'package:ui_challenge/workshop.dart';
 import 'detail.dart';
 import 'Book.dart';
-import 'utils.dart' as util;
-//import 'package:url_launcher/url_launcher.dart';
 
 class BookDesign extends StatelessWidget {
-  List<String> bookTitles = [
-    "Enterprise Design Sprints",
-    "DesignOps Handbook",
-    "Design System Handbook",
-    "Engineering Mathematics",
-    "Fluid Mechanics and Dynamics",
-    "Intro to Thermodynamics"
-  ];
-  List<String> authorsList = [
-    "Richard Bonfield",
-    "Taraji Henson",
-    "Ben Bruce",
-    "Constatine Cavafy",
-    "Robert Fulghum"
-  ];
-  List<Color> cardColors = [
-    Colors.blue[800],
-    Colors.pink,
-    Colors.green[700],
-    Colors.red[400],
-    Colors.yellow[600],
-  ];
-  List<String> imagesURL;
-
-  List<Book> bookList = [
-    Book("Something On The Other Side", "Robert Bremner", Colors.blue[800],
-        "https://bookcoverexpress.com/wp-content/uploads/2017/08/spooky.jpg"),
-    Book("Get Your Life Back", "Dr. Melodie Billiot", Colors.pink,
-        "https://bookcoverexpress.com/wp-content/uploads/2018/03/medicallarge.jpg"),
-    Book("Why We Dream", "Steve Dorsey", Colors.green[700],
-        "https://bookcoverexpress.com/wp-content/uploads/2019/03/dreamLARGE-1.jpg"),
-    Book("The Dating Mirror", "Diana Dorrell", Colors.red[400],
-        "https://bookcoverexpress.com/wp-content/uploads/2019/03/mirrorlarge.jpg"),
-    Book("Hitting The Ground", "Brad Manuel", Colors.yellow[600],
-        "https://bookcoverexpress.com/wp-content/uploads/2015/06/manuel.jpg")
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -246,7 +205,7 @@ class BookDesign extends StatelessWidget {
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (BuildContext context, int index) {
-                      return Podcast(guestName: authorsList[index]);
+                      return Podcast(guestName: bookList[index].author);
                     },
                     separatorBuilder: (BuildContext context, int index) =>
                         SizedBox(
@@ -261,3 +220,16 @@ class BookDesign extends StatelessWidget {
     );
   }
 }
+
+List<Book> bookList = [
+  Book("Something On The Other Side", "Robert Bremner", Colors.blue[800],
+      "https://bookcoverexpress.com/wp-content/uploads/2017/08/spooky.jpg"),
+  Book("Get Your Life Back", "Dr. Melodie Billiot", Colors.pink,
+      "https://bookcoverexpress.com/wp-content/uploads/2018/03/medicallarge.jpg"),
+  Book("Why We Dream", "Steve Dorsey", Colors.green[700],
+      "https://bookcoverexpress.com/wp-content/uploads/2019/03/dreamLARGE-1.jpg"),
+  Book("The Dating Mirror", "Diana Dorrell", Colors.red[400],
+      "https://bookcoverexpress.com/wp-content/uploads/2019/03/mirrorlarge.jpg"),
+  Book("Hitting The Ground", "Brad Manuel", Colors.yellow[600],
+      "https://bookcoverexpress.com/wp-content/uploads/2015/06/manuel.jpg")
+];
