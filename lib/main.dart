@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'bookdesign.dart';
+import 'widgets/bookdesign.dart';
 
 void main() => runApp(MyApp());
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ui_challenge/book_description.dart';
-import 'package:ui_challenge/library_card.dart';
 
+import 'book_description.dart';
+import 'library_card.dart';
 import 'library_scroll.dart';
 
 class Detail extends StatelessWidget {

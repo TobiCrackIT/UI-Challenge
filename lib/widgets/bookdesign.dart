@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:ui_challenge/library_card.dart';
+import 'package:ui_challenge/models/book.dart';
 import 'package:ui_challenge/widgets/podcast.dart';
-import 'package:ui_challenge/workshop.dart';
+import 'package:ui_challenge/widgets/workshop.dart';
 import 'detail.dart';
-import 'Book.dart';
+import 'library_card.dart';
 
 class BookDesign extends StatelessWidget {
   @override

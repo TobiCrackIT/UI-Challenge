@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ui_challenge/utils.dart' as util;
-
-
+import 'package:ui_challenge/utils/utils.dart' as util;
 
 class Podcast extends StatelessWidget {
   final String guestName;
