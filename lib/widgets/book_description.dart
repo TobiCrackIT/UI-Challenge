@@ -4,8 +4,9 @@ class BookDescription extends StatelessWidget {
   final Color color;
   final String title;
   final String author;
+  final String imageURL;
 
-  const BookDescription({Key key, @required this.color,@required this.title, @required this.author,  }) : super(key: key);
+  const BookDescription({Key key, @required this.color,@required this.title, @required this.author, this.imageURL }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -62,14 +63,23 @@ class BookDescription extends StatelessWidget {
                   borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(20),
                       bottomRight: Radius.circular(20)),
-                  child: Image.asset(
-                    'assets/woman.jpg',
-                    width: 130,
-                    height: 86,
-                    fit: BoxFit.fill,
-                    color: color,
-                    colorBlendMode: BlendMode.hardLight,
-                  )),
+                child: imageURL == null
+                    ? Image.asset(
+                  'assets/woman.jpg',
+                  width: 100,
+                  height: 85,
+                  fit: BoxFit.fill,
+                  color: color,
+                  colorBlendMode: BlendMode.hardLight,
+                )
+                    : Image.network(
+                  imageURL,
+                  width: 100,
+                  height: 85,
+                  fit: BoxFit.cover,
+                  color: color,
+                  colorBlendMode: BlendMode.hardLight,
+                ),),
             ],
           ),
         ),

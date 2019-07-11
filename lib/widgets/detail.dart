@@ -41,7 +41,7 @@ class Detail extends StatelessWidget {
       body: ListView(
         children: <Widget>[
           SizedBox(height: 20),
-          BookDescription(author: author, color: color, title: title),
+          BookDescription(author: author, color: color, title: title,imageURL: imageURL,),
           SizedBox(height: 12),
           LibraryScroll(color: color),
           SizedBox(height: 40),
