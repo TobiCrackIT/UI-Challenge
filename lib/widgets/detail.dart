@@ -8,8 +8,9 @@ class Detail extends StatelessWidget {
   final String author;
   final String title;
   final Color color;
+  final String imageURL;
 
-  Detail({this.author, this.title, this.color});
+  Detail({this.author, this.title, this.color,this.imageURL});
 
   @override
   Widget build(BuildContext context) {
@@ -68,6 +69,7 @@ class Detail extends StatelessWidget {
                       bookTitle: title,
                       author: author,
                       color: color,
+                      imageURL: imageURL,
                     );
                   },
                   separatorBuilder: (BuildContext context, int index) =>

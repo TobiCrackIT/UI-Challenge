@@ -140,6 +140,7 @@ class BookDesign extends StatelessWidget {
                                     author: currentBook.author,
                                     title: currentBook.title,
                                     color: currentBook.color,
+                                    imageURL: currentBook.imageURL,
                                   )));
                         },
                       );
