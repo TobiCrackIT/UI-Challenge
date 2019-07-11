@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "787145474710",
+    "firebase_url": "https://bookstore-89a16.firebaseio.com",
+    "project_id": "bookstore-89a16",
+    "storage_bucket": "bookstore-89a16.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:787145474710:android:20348e6d13a442ba",
+        "android_client_info": {
+          "package_name": "com.example.ui_challenge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "787145474710-pnr13br1dq16l77pjma1vu8420vousmh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJVis35R4yTn4mq8yYprPyG6yaWIvIL_Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "787145474710-pnr13br1dq16l77pjma1vu8420vousmh.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "787145474710-8v6g8goggdt61iuvrrqr904lrnprm8j8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.uiChallenge"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,21 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:ui_challenge/book_description.dart';
-import 'package:ui_challenge/library_card.dart';
 
+import 'book_description.dart';
+import 'library_card.dart';
 import 'library_scroll.dart';
 
 class Detail extends StatelessWidget {
   final String author;
   final String title;
   final Color color;
+  final String imageURL;
 
-  Detail({this.author, this.title, this.color});
+  Detail({this.author, this.title, this.color,this.imageURL});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        elevation: 0.0,
+        bottomOpacity: 0.0,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          color: Colors.black,
+          icon: Icon(Icons.arrow_back_ios),
+        ),
         actions: <Widget>[
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 15.0),
@@ -31,7 +41,7 @@ class Detail extends StatelessWidget {
       body: ListView(
         children: <Widget>[
           SizedBox(height: 20),
-          BookDescription(author: author, color: color, title: title),
+          BookDescription(author: author, color: color, title: title,imageURL: imageURL,),
           SizedBox(height: 12),
           LibraryScroll(color: color),
           SizedBox(height: 40),
@@ -59,6 +69,7 @@ class Detail extends StatelessWidget {
                       bookTitle: title,
                       author: author,
                       color: color,
+                      imageURL: imageURL,
                     );
                   },
                   separatorBuilder: (BuildContext context, int index) =>
